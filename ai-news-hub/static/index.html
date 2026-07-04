@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Hub — latest AI papers & news</title>
+  <meta name="description" content="The latest AI research papers and news, all in one simple place." />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>AI News Hub</h1>
+      <p class="tagline">The latest AI research papers and news — simple, all in one place.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="search-form" class="search-bar" role="search">
+      <span class="search-icon">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.65" y2="16.65"/></svg>
+      </span>
+      <input id="search-input" type="search" autocomplete="off"
+             placeholder="Search a topic — e.g. transformer, diffusion, LLM, agents" />
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+    <div id="search-info" class="search-info" hidden></div>
+
+    <div class="toolbar">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="papers" role="tab">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+          Research Papers
+        </button>
+        <button class="tab" data-tab="news" role="tab">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2z"/><path d="M17 8h2a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2"/><line x1="7" y1="8" x2="14" y2="8"/><line x1="7" y1="12" x2="14" y2="12"/><line x1="7" y1="16" x2="11" y2="16"/></svg>
+          AI News
+        </button>
+        <button class="tab" data-tab="ask" role="tab">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M9 2.6l1.45 3.75L14.2 7.8l-3.75 1.45L9 13l-1.45-3.75L3.8 7.8l3.75-1.45z"/><path d="M17.5 12.6l.9 2.35 2.35.9-2.35.9-.9 2.35-.9-2.35-2.35-.9 2.35-.9z"/></svg>
+          Ask AI
+        </button>
+      </div>
+      <div class="toolbar-right">
+        <span id="status" class="status"></span>
+        <button id="refresh" class="refresh" title="Refresh">↻ Refresh</button>
+      </div>
+    </div>
+
+    <section id="papers" class="panel active">
+      <div id="papers-filter" class="filterbar"></div>
+      <div id="papers-list" class="cards"></div>
+    </section>
+
+    <section id="news" class="panel">
+      <div id="news-filter" class="filterbar"></div>
+      <div id="news-list" class="cards"></div>
+    </section>
+
+    <section id="ask" class="panel">
+      <form id="ask-form" class="ask-form">
+        <input id="ask-input" type="text" autocomplete="off"
+               placeholder="Ask me to pull something — e.g. latest papers on diffusion models, or what's new with OpenAI" />
+        <button type="submit" class="search-btn">Ask</button>
+      </form>
+      <p class="ask-hint">Tell me what you want and I'll pull the real links — papers, news, or anywhere on the web. Click any result to open it.</p>
+      <div id="ask-answer" class="ask-answer"></div>
+      <div id="ask-links" class="cards"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Sources: arXiv · Hacker News · VentureBeat · MIT Tech Review. Updated automatically.</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

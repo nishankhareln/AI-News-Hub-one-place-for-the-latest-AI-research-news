@@ -1,0 +1,11 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+httpx>=0.27,<0.29
+feedparser==6.0.11
+
+# --- AI agent (LangGraph + Gemini + web search) ---
+python-dotenv>=1.0.1
+langgraph>=0.2.40
+langchain-core>=0.3.15
+langchain-google-genai>=2.0.4
+tavily-python>=0.5.0

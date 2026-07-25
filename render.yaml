@@ -1,13 +1,15 @@
 # Render Blueprint for AI News Hub
+# This repo's app lives in the ai-news-hub/ subfolder, so `rootDir` points there.
 # Deploy: Render Dashboard -> New + -> Blueprint -> pick this repo.
-# The two API keys below are marked `sync: false`, so Render will prompt you
-# to paste them in its dashboard — they are NEVER stored in this file or git.
+# The two API keys below are `sync: false`, so Render prompts you to paste them
+# in its dashboard — they are NEVER stored in this file or in git.
 services:
   - type: web
     name: ai-news-hub
     runtime: python
     plan: free
     region: oregon
+    rootDir: ai-news-hub
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health

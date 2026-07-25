@@ -1,0 +1,24 @@
+# Render Blueprint for AI News Hub
+# Deploy: Render Dashboard -> New + -> Blueprint -> pick this repo.
+# The two API keys below are marked `sync: false`, so Render will prompt you
+# to paste them in its dashboard — they are NEVER stored in this file or git.
+services:
+  - type: web
+    name: ai-news-hub
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      # Secrets — Render will ask you to enter these in the dashboard.
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
